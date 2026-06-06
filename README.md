@@ -34,6 +34,18 @@ npm run build
 
 Output goes to `dist/`.
 
+## Testing (Playwright)
+
+```bash
+npm install
+npx playwright install chromium   # first time only
+npm test
+```
+
+Tests build the production site, start a preview server, and run E2E checks in desktop and mobile viewports. CI runs automatically on push via GitHub Actions.
+
+Interactive mode: `npm run test:ui`
+
 ## Deploy on Cloudflare Pages
 
 ### 1. Push to GitHub
