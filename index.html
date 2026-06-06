@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mabroka — a community rooted in blessing, generosity, and meaningful connection."
+    />
+    <meta name="theme-color" content="#0a1410" />
+    <link rel="canonical" href="https://mabroka.org/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mabroka.org/" />
+    <meta property="og:title" content="Mabroka — مباركة" />
+    <meta
+      property="og:description"
+      content="A community rooted in blessing, generosity, and meaningful connection."
+    />
+    <meta property="og:image" content="https://mabroka.org/og-image.svg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Mabroka" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mabroka — مباركة" />
+    <meta
+      name="twitter:description"
+      content="A community rooted in blessing, generosity, and meaningful connection."
+    />
+    <meta name="twitter:image" content="https://mabroka.org/og-image.svg" />
+
+    <title>Mabroka — مباركة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+  </head>
+  <body>
+    <div class="pattern-bg" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="logo" href="#">
+        <span class="logo-mark" aria-hidden="true">✦</span>
+        <span class="logo-text">Mabroka</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#values">Values</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-content">
+          <p class="hero-arabic" lang="ar" dir="rtl">مباركة</p>
+          <h1>Blessings that bring people together</h1>
+          <p class="hero-lead">
+            Mabroka is a home for community, generosity, and shared purpose —
+            where every gathering becomes a moment of grace.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Get in touch</a>
+            <a class="btn btn-ghost" href="#about">Learn more</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-orb"></div>
+          <div class="hero-ring"></div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-label">About</div>
+        <div class="section-grid">
+          <h2>Rooted in meaning, open to all</h2>
+          <div class="section-body">
+            <p>
+              The word <em>mabroka</em> carries warmth — a blessing offered, a
+              celebration shared, a wish for goodness in what lies ahead. We
+              built this space to honor that spirit: welcoming, thoughtful, and
+              grounded in care for one another.
+            </p>
+            <p>
+              Whether you are here to connect, collaborate, or simply learn
+              more, you belong. This site is the beginning of something we are
+              growing together.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="values">
+        <div class="section-label">Values</div>
+        <h2>What guides us</h2>
+        <ul class="cards">
+          <li class="card">
+            <span class="card-icon" aria-hidden="true">◈</span>
+            <h3>Community</h3>
+            <p>
+              Real connection grows from showing up for each other — with
+              patience, respect, and an open heart.
+            </p>
+          </li>
+          <li class="card">
+            <span class="card-icon" aria-hidden="true">◈</span>
+            <h3>Generosity</h3>
+            <p>
+              We give freely of time, knowledge, and kindness, believing that
+              what we share multiplies.
+            </p>
+          </li>
+          <li class="card">
+            <span class="card-icon" aria-hidden="true">◈</span>
+            <h3>Purpose</h3>
+            <p>
+              Every initiative we take is meant to leave something good behind
+              — for people and for the places we call home.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="section-label">Contact</div>
+        <div class="contact-panel">
+          <div class="contact-copy">
+            <h2>Let's connect</h2>
+            <p>
+              Have a question, an idea, or a partnership in mind? We'd love to
+              hear from you.
+            </p>
+          </div>
+          <form class="contact-form" id="contact-form" novalidate>
+            <label class="sr-only" aria-hidden="true">
+              Leave blank
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+            </label>
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" required autocomplete="name" />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" required autocomplete="email" />
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="4" required></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary" id="form-submit">
+              Send message
+            </button>
+            <p class="form-note form-note--success" id="form-success" hidden role="status">
+              Thank you — your message has been received. We'll be in touch soon.
+            </p>
+            <p class="form-note form-note--error" id="form-error" hidden role="alert">
+              Something went wrong. Please try again or email us directly.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <span class="footer-brand">Mabroka</span>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <span>mabroka.org</span>
+      </p>
+      <p class="footer-tagline" lang="ar" dir="rtl">بالبركة والخير</p>
+    </footer>
+
+    <script type="module" src="/scripts/main.js"></script>
+  </body>
+</html>

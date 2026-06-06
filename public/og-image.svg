@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0a1410"/>
+  <circle cx="900" cy="120" r="200" fill="#c9a962" opacity="0.08"/>
+  <circle cx="1050" cy="500" r="150" fill="#285a46" opacity="0.25"/>
+  <text x="80" y="280" font-family="Georgia, serif" font-size="120" fill="#c9a962" direction="rtl">E('1C)</text>
+  <text x="80" y="380" font-family="Georgia, serif" font-size="72" fill="#eef2ef">Mabroka</text>
+  <text x="80" y="460" font-family="system-ui, sans-serif" font-size="32" fill="#9fb5a8">Blessings that bring people together</text>
+  <text x="80" y="560" font-family="system-ui, sans-serif" font-size="24" fill="#c9a962" opacity="0.7">mabroka.org</text>
+  <circle cx="980" cy="315" r="90" fill="url(#orb)"/>
+  <defs>
+    <radialGradient id="orb" cx="0.35" cy="0.35" r="0.65">
+      <stop offset="0%" stop-color="#e4cc8a"/>
+      <stop offset="55%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#6b5528"/>
+    </radialGradient>
+  </defs>
+</svg>
