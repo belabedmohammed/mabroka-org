@@ -1,10 +1,8 @@
 import { defineConfig } from 'vite';
 
-const base = process.env.GITHUB_ACTIONS ? '/mabroka-org/' : './';
-
 export default defineConfig({
   root: '.',
-  base,
+  base: process.env.PAGES_BASE || './',
   build: {
     outDir: 'dist',
   },
