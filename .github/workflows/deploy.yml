@@ -45,7 +45,6 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          PAGES_BASE: /mabroka-org/
           VITE_FORMSPREE_ID: ${{ secrets.VITE_FORMSPREE_ID }}
       - run: echo 'mabroka.org' > dist/CNAME
       - uses: actions/configure-pages@v5
