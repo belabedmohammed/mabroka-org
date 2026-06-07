@@ -430,6 +430,18 @@ img {
   min-height: 100px;
 }
 
+.field-error {
+  font-size: 0.85rem;
+  color: #e8a0a0;
+  margin-top: 0.15rem;
+}
+
+.contact-form input.is-invalid,
+.contact-form textarea.is-invalid {
+  border-color: #e8a0a0;
+  box-shadow: 0 0 8px rgba(232, 160, 160, 0.15);
+}
+
 .form-note {
   font-size: 0.9rem;
 }

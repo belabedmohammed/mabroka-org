@@ -39,6 +39,52 @@ test.describe('Contact form', () => {
     await expect(page.getByRole('alert')).toContainText('Something went wrong');
   });
 
+  test('shows validation errors when fields are empty', async ({ page }) => {
+    let submitted = false;
+    await page.route('**/formspree.io/**', async (route) => {
+      submitted = true;
+      await route.fallback();
+    });
+
+    await page.getByRole('button', { name: 'Send message' }).click();
+
+    await expect(page.locator('#error-name')).toBeVisible();
+    await expect(page.locator('#error-name')).toHaveText('Name is required.');
+    
+    await expect(page.locator('#error-email')).toBeVisible();
+    await expect(page.locator('#error-email')).toHaveText('Email is required.');
+    
+    await expect(page.locator('#error-message')).toBeVisible();
+    await expect(page.locator('#error-message')).toHaveText('Message is required.');
+    
+    // Ensure form is not submitted
+    expect(submitted).toBe(false);
+  });
+
+  test('shows validation error for invalid email format', async ({ page }) => {
+    await page.getByLabel('Name').fill('Test User');
+    await page.getByLabel('Email').fill('invalid-email');
+    await page.getByLabel('Message').fill('Hello.');
+
+    await page.getByRole('button', { name: 'Send message' }).click();
+
+    await expect(page.locator('#error-email')).toBeVisible();
+    await expect(page.locator('#error-email')).toHaveText('Please enter a valid email address.');
+    
+    // other errors should be hidden
+    await expect(page.locator('#error-name')).toBeHidden();
+    await expect(page.locator('#error-message')).toBeHidden();
+  });
+
+  test('clears validation errors when inputs become valid', async ({ page }) => {
+    await page.getByRole('button', { name: 'Send message' }).click();
+    await expect(page.locator('#error-name')).toBeVisible();
+
+    // Type in the name field, error should disappear
+    await page.getByLabel('Name').fill('Test');
+    await expect(page.locator('#error-name')).toBeHidden();
+  });
+
   test('ignores honeypot submissions', async ({ page }) => {
     let submitted = false;
     await page.unroute('**/formspree.io/**');

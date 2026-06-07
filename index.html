@@ -147,15 +147,18 @@
             </label>
             <label>
               <span>Name</span>
-              <input type="text" name="name" required autocomplete="name" />
+              <input type="text" name="name" id="contact-name" required autocomplete="name" />
+              <span class="field-error" id="error-name" aria-live="polite" hidden></span>
             </label>
             <label>
               <span>Email</span>
-              <input type="email" name="email" required autocomplete="email" />
+              <input type="email" name="email" id="contact-email" required autocomplete="email" />
+              <span class="field-error" id="error-email" aria-live="polite" hidden></span>
             </label>
             <label>
               <span>Message</span>
-              <textarea name="message" rows="4" required></textarea>
+              <textarea name="message" id="contact-message" rows="4" required></textarea>
+              <span class="field-error" id="error-message" aria-live="polite" hidden></span>
             </label>
             <button type="submit" class="btn btn-primary" id="form-submit">
               Send message

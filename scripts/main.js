@@ -25,9 +25,84 @@ function setFormMessage(type) {
   formError.hidden = type !== 'error';
 }
 
+const fields = {
+  name: {
+    input: form?.querySelector('input[name="name"]'),
+    error: document.getElementById('error-name'),
+    validate: (val) => (val.trim() ? '' : 'Name is required.')
+  },
+  email: {
+    input: form?.querySelector('input[name="email"]'),
+    error: document.getElementById('error-email'),
+    validate: (val) => {
+      if (!val.trim()) return 'Email is required.';
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(val.trim())) return 'Please enter a valid email address.';
+      return '';
+    }
+  },
+  message: {
+    input: form?.querySelector('textarea[name="message"]'),
+    error: document.getElementById('error-message'),
+    validate: (val) => (val.trim() ? '' : 'Message is required.')
+  }
+};
+
+let submissionAttempted = false;
+
+function validateField(name) {
+  const field = fields[name];
+  if (!field || !field.input) return true;
+
+  const errorMsg = field.validate(field.input.value);
+  
+  if (errorMsg) {
+    field.input.classList.add('is-invalid');
+    field.input.setAttribute('aria-invalid', 'true');
+    field.input.setAttribute('aria-describedby', `error-${name}`);
+    if (field.error) {
+      field.error.textContent = errorMsg;
+      field.error.hidden = false;
+    }
+    return false;
+  } else {
+    field.input.classList.remove('is-invalid');
+    field.input.removeAttribute('aria-invalid');
+    field.input.removeAttribute('aria-describedby');
+    if (field.error) {
+      field.error.textContent = '';
+      field.error.hidden = true;
+    }
+    return true;
+  }
+}
+
+if (form) {
+  Object.keys(fields).forEach((name) => {
+    fields[name].input?.addEventListener('input', () => {
+      if (submissionAttempted) {
+        validateField(name);
+      }
+    });
+  });
+}
+
 form?.addEventListener('submit', async (event) => {
   event.preventDefault();
   setFormMessage(null);
+
+  submissionAttempted = true;
+  let isValid = true;
+  
+  Object.keys(fields).forEach((name) => {
+    if (!validateField(name)) {
+      isValid = false;
+    }
+  });
+
+  if (!isValid) {
+    return;
+  }
 
   if (!formspreeId) {
     console.warn('Set VITE_FORMSPREE_ID in .env to enable form delivery.');
